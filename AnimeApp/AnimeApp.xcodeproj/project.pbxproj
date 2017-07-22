@@ -14,6 +14,7 @@
 		9CC2EA901F23CD2F00ED92FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2EA8E1F23CD2F00ED92FA /* LaunchScreen.storyboard */; };
 		9CC2EA9B1F23CD3000ED92FA /* AnimeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA9A1F23CD3000ED92FA /* AnimeAppTests.swift */; };
 		9CC2EAA61F23CD3000ED92FA /* AnimeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EAA51F23CD3000ED92FA /* AnimeAppUITests.swift */; };
+		9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9CC2EAA11F23CD3000ED92FA /* AnimeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2EAA51F23CD3000ED92FA /* AnimeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAppUITests.swift; sourceTree = "<group>"; };
 		9CC2EAA71F23CD3000ED92FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		9CC2EAB61F23CE1A00ED92FA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			files = (
 				9CC2EA881F23CD2F00ED92FA /* ViewController.swift in Sources */,
 				9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */,
+				9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
