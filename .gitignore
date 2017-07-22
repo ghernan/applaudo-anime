@@ -109,7 +109,9 @@ xcuserdata
 ## Various settings
 
 ## Other
-
+AnimeApp/Pods
+AnimeApp/AnimeApp.xcodeproj/project.xcworkspace/xcuserdata/antoniohernandez.xcuserdatad/UserInterfaceState.xcuserstate
+AnimeApp/AnimeApp.xcworkspace
 ### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
