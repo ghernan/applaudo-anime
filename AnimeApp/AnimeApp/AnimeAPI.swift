@@ -15,4 +15,5 @@ struct AnimeAPI {
     static let baseURL = "https://anilist.co/api/"
     
     
+    
 }
