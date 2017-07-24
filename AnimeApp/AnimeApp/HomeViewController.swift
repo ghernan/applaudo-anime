@@ -12,6 +12,9 @@ import ObjectMapper
 
 class HomeViewController: UIViewController {
     
+    //IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    
     //Private properties
     private let authManager = AuthenticationManager.shared
     
@@ -19,6 +22,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         loadSeriesContent()
         
     }
@@ -45,10 +49,35 @@ class HomeViewController: UIViewController {
                 }
             })
         }
-        
     }
+}
 
+//MARK: - UITableViewDataSource
 
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reusableIdentifier) as! CategoryCell
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
+    
 
+}
+
+//MARK: - UITableViewDelegate
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return "Most popular"
+    }
 }
 
