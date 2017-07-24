@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import ObjectMapper
 
 class HomeViewController: UIViewController {
     
@@ -38,7 +39,10 @@ class HomeViewController: UIViewController {
         
         authManager.tokenCompletionHandler = { hasToken in
             Alamofire.request(AniListSeriesRouter.readSeries()).responseJSON(completionHandler: { (response) in
-                //print(response.value)
+                if let dictionary = response.value as? [[String : Any]] {
+                    let array = Mapper<Series>().mapArray(JSONArray: dictionary)
+                    print(array)
+                }
             })
         }
         
