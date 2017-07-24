@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         
         authManager.tokenCompletionHandler = { hasToken in
             Alamofire.request(AniListSeriesRouter.readSeries()).responseJSON(completionHandler: { (response) in
-                print(response.value)
+                //print(response.value)
             })
         }
         
