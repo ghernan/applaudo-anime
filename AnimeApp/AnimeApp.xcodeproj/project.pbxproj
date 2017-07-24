@@ -10,8 +10,11 @@
 		4218026EBEC7D957D2F1C549 /* Pods_AnimeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FAF64772CEB67C5964298B6 /* Pods_AnimeAppUITests.framework */; };
 		5F1B6B2942529CE2CFC6A11B /* Pods_AnimeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A2945036B4609187B9077FC /* Pods_AnimeAppTests.framework */; };
 		74898348008696304D9295E0 /* Pods_AnimeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F87142B038E31BE319391C4B /* Pods_AnimeApp.framework */; };
+		9C3374751F25D2E200C93F85 /* AniListSeriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374741F25D2E200C93F85 /* AniListSeriesRouter.swift */; };
+		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
+		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
-		9CC2EA881F23CD2F00ED92FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA871F23CD2F00ED92FA /* ViewController.swift */; };
+		9CC2EA881F23CD2F00ED92FA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA871F23CD2F00ED92FA /* HomeViewController.swift */; };
 		9CC2EA8B1F23CD2F00ED92FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2EA891F23CD2F00ED92FA /* Main.storyboard */; };
 		9CC2EA8D1F23CD2F00ED92FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2EA8C1F23CD2F00ED92FA /* Assets.xcassets */; };
 		9CC2EA901F23CD2F00ED92FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2EA8E1F23CD2F00ED92FA /* LaunchScreen.storyboard */; };
@@ -47,9 +50,12 @@
 		7D8112C8862C899D7FB3347B /* Pods-AnimeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnimeAppUITests/Pods-AnimeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8FAF64772CEB67C5964298B6 /* Pods_AnimeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C9F7246F6ECBDAB1BB36DE /* Pods-AnimeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimeApp/Pods-AnimeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9C3374741F25D2E200C93F85 /* AniListSeriesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListSeriesRouter.swift; sourceTree = "<group>"; };
+		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9CC2EA871F23CD2F00ED92FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9CC2EA871F23CD2F00ED92FA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9CC2EA8A1F23CD2F00ED92FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CC2EA8C1F23CD2F00ED92FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC2EA8F1F23CD2F00ED92FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -181,7 +187,8 @@
 		9CC2EAB41F23CDF200ED92FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9CC2EA871F23CD2F00ED92FA /* ViewController.swift */,
+				9CC2EA871F23CD2F00ED92FA /* HomeViewController.swift */,
+				9C8613111F2544F600877B38 /* WebViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */,
+				9C86130F1F2519D000877B38 /* AuthenticationManager.swift */,
 				9CC2EABB1F24FE1700ED92FA /* Routers */,
 			);
 			name = Services;
@@ -223,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationRouter.swift */,
+				9C3374741F25D2E200C93F85 /* AniListSeriesRouter.swift */,
 			);
 			name = Routers;
 			sourceTree = "<group>";
@@ -511,9 +520,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC2EA881F23CD2F00ED92FA /* ViewController.swift in Sources */,
+				9C3374751F25D2E200C93F85 /* AniListSeriesRouter.swift in Sources */,
+				9CC2EA881F23CD2F00ED92FA /* HomeViewController.swift in Sources */,
+				9C8613121F2544F600877B38 /* WebViewController.swift in Sources */,
 				9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */,
 				9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */,
+				9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */,
 				9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

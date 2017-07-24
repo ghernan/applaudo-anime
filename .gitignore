@@ -112,6 +112,7 @@ xcuserdata
 AnimeApp/Pods
 AnimeApp/AnimeApp.xcodeproj/project.xcworkspace/xcuserdata/antoniohernandez.xcuserdatad/UserInterfaceState.xcuserstate
 AnimeApp/AnimeApp.xcworkspace
+AnimeApp/Podfile.lock
 ### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj

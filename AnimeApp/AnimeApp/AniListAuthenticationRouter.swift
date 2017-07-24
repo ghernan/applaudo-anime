@@ -10,39 +10,22 @@ import Foundation
 
 import Alamofire
 
-enum AniListAuthenticationRouter: URLRequestConvertible {
+enum AniListAuthenticationURLs: String {
     
-    private static let clientID = "toniohdez-tadmp"
-    private static let clientSecret = "nV858UQZpLgvnTuuMFx9K"
+    case authorizationCodeURL
     
-    case getAuthorizationCode()
+    case accessTokenURL
     
-    case getAccessToken(authorizationCode: String)
-    
-    case refreshAccessToken(refreshToken: String)
-    
-    
-    
-    var query: (path: String, parameters: Parameters) {
+    var urlString: String {
         
         switch self {
             
-        case .getAuthorizationCode():
-            return ("auth/authorize",["grant_type" : "authorization_code", "client_id" : AniListAuthenticationRouter.clientID, "redirect_uri" : "AnimeApp://", "response_type" : "code" ])
+        case .authorizationCodeURL:
+            return "\(AnimeAPI.baseURL)auth/authorize"
             
-        case .getAccessToken(let code):
-            return ("auth/access_token",["grant_type" : "authorization_code", "client_id" : AniListAuthenticationRouter.clientID, "client_secret" : AniListAuthenticationRouter.clientSecret, "redirect_uri" : "AnimeApp://", "code" : code ])
+        case .accessTokenURL:
+            return "\(AnimeAPI.baseURL)auth/access_token"
             
-        case .refreshAccessToken(let token):
-            return ("auth/access_token",["grant_type" : "refresh_token", "client_id" : AniListAuthenticationRouter.clientID, "client_secret" : AniListAuthenticationRouter.clientSecret, "refresh_token" : token ])            
         }
-    }
-    
-    
-    func asURLRequest() throws -> URLRequest {
-        
-        let url = try AnimeAPI.baseURL.asURL()
-        let urlRequest = URLRequest(url: url.appendingPathComponent(query.path))
-        return try URLEncoding.default.encode(urlRequest, with: query.parameters)
     }
 }

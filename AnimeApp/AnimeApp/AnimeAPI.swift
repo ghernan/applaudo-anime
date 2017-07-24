@@ -13,7 +13,7 @@ import Foundation
 struct AnimeAPI {
     
     static let baseURL = "https://anilist.co/api/"
-    
-    
+    static let clientID = "toniohdez-tadmp"
+    static let clientSecret = "nV858UQZpLgvnTuuMFx9K"   
     
 }
