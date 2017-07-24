@@ -14,6 +14,7 @@
 		9C3374771F268BA300C93F85 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374761F268BA300C93F85 /* Series.swift */; };
 		9C3374791F26934000C93F85 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374781F26934000C93F85 /* Anime.swift */; };
 		9C33747B1F269A6900C93F85 /* String+toDateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33747A1F269A6900C93F85 /* String+toDateString.swift */; };
+		9C33747F1F26A66F00C93F85 /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */; };
 		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
 		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		9C3374761F268BA300C93F85 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		9C3374781F26934000C93F85 /* Anime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		9C33747A1F269A6900C93F85 /* String+toDateString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+toDateString.swift"; sourceTree = "<group>"; };
+		9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
 		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,22 @@
 				7D8112C8862C899D7FB3347B /* Pods-AnimeAppUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9C33747C1F26A61400C93F85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9C33747A1F269A6900C93F85 /* String+toDateString.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		9C33747D1F26A62300C93F85 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		9CC2EA791F23CD2F00ED92FA = {
@@ -221,7 +239,8 @@
 		9CC2EAB71F23CE3500ED92FA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9C33747A1F269A6900C93F85 /* String+toDateString.swift */,
+				9C33747D1F26A62300C93F85 /* Helpers */,
+				9C33747C1F26A61400C93F85 /* Extensions */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -530,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C3374771F268BA300C93F85 /* Series.swift in Sources */,
+				9C33747F1F26A66F00C93F85 /* ImageDownloadHelper.swift in Sources */,
 				9C3374751F25D2E200C93F85 /* AniListSeriesRouter.swift in Sources */,
 				9CC2EA881F23CD2F00ED92FA /* HomeViewController.swift in Sources */,
 				9C8613121F2544F600877B38 /* WebViewController.swift in Sources */,
