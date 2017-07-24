@@ -10,11 +10,13 @@ import Foundation
 
 import Alamofire
 
-enum AniListAuthenticationURLs: String {
+enum AniListAuthenticationURL: String {
     
     case authorizationCodeURL
     
     case accessTokenURL
+    
+    case redirectURL
     
     var urlString: String {
         
@@ -25,6 +27,9 @@ enum AniListAuthenticationURLs: String {
             
         case .accessTokenURL:
             return "\(AnimeAPI.baseURL)auth/access_token"
+            
+        case .redirectURL:
+            return "AnimeApp://oauth-callback"
             
         }
     }

@@ -37,7 +37,9 @@ class HomeViewController: UIViewController {
     private func loadSeriesContent() {
         
         authManager.tokenCompletionHandler = { hasToken in
-            print("authenticated")
+            Alamofire.request(AniListSeriesRouter.readSeries()).responseJSON(completionHandler: { (response) in
+                print(response.value)
+            })
         }
         
     }

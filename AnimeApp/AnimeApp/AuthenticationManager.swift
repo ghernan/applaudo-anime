@@ -8,6 +8,7 @@
 
 import Foundation
 import OAuthSwift
+import Alamofire
 
 class AuthenticationManager {
     
@@ -21,14 +22,14 @@ class AuthenticationManager {
     private let oauthswift = OAuth2Swift(
         consumerKey:    AnimeAPI.clientID,
         consumerSecret: AnimeAPI.clientSecret,
-        authorizeUrl:   AniListAuthenticationURLs.authorizationCodeURL.urlString,
-        accessTokenUrl: AniListAuthenticationURLs.accessTokenURL.urlString,
+        authorizeUrl:   AniListAuthenticationURL.authorizationCodeURL.urlString,
+        accessTokenUrl: AniListAuthenticationURL.accessTokenURL.urlString,
         responseType:   "code"
     )
     
     private var token = "" {
         didSet {
-            hasAuthToken = true
+            
             tokenCompletionHandler!(true)
         }
     }
@@ -43,16 +44,25 @@ class AuthenticationManager {
     public func authenticate() {
         
         oauthswift.authorizeURLHandler = WebViewController()
-        oauthswift.authorize(withCallbackURL: URL(string: "AnimeApp://oauth-callback")!,
+        hasAuthToken = true
+        oauthswift.authorize(withCallbackURL: URL(string: AniListAuthenticationURL.redirectURL.urlString)!,
                              scope: "",
                              state: "GET",
                              success: { (credentials, response, parameters) in
-                                self.hasAuthToken = true
                                 self.token = credentials.oauthToken
+                                print(self.token)
         },
                              failure: {error in
                                 print("error: \(error)")
         })
+    }
+    
+    public func getAuthenticationHeader() -> HTTPHeaders {
+        
+        return [
+            "Authorization": "Bearer \(token)",
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
     }
 }
 

@@ -21,7 +21,7 @@
 		9CC2EA9B1F23CD3000ED92FA /* AnimeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA9A1F23CD3000ED92FA /* AnimeAppTests.swift */; };
 		9CC2EAA61F23CD3000ED92FA /* AnimeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EAA51F23CD3000ED92FA /* AnimeAppUITests.swift */; };
 		9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */; };
-		9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationRouter.swift */; };
+		9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		9CC2EAA51F23CD3000ED92FA /* AnimeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAppUITests.swift; sourceTree = "<group>"; };
 		9CC2EAA71F23CD3000ED92FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
-		9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListAuthenticationRouter.swift; sourceTree = "<group>"; };
+		9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListAuthenticationURL.swift; sourceTree = "<group>"; };
 		F87142B038E31BE319391C4B /* Pods_AnimeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -230,7 +230,7 @@
 		9CC2EABB1F24FE1700ED92FA /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationRouter.swift */,
+				9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationURL.swift */,
 				9C3374741F25D2E200C93F85 /* AniListSeriesRouter.swift */,
 			);
 			name = Routers;
@@ -526,7 +526,7 @@
 				9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */,
 				9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */,
 				9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */,
-				9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationRouter.swift in Sources */,
+				9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationURL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
