@@ -34,9 +34,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-    
         tableView.sectionHeaderHeight = 40
-        
+        retrieveUserInfo()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SeriesDetailViewController {
@@ -49,7 +48,7 @@ class ProfileViewController: UIViewController {
     //MARK: - Private functions
 
     
-    private func retrieveSeries() {
+    private func retrieveUserInfo() {
         
         
         

@@ -27,6 +27,7 @@
 		9C3374961F27CF8000C93F85 /* AniListUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374951F27CF8000C93F85 /* AniListUserRouter.swift */; };
 		9C3374981F27DC5E00C93F85 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374971F27DC5E00C93F85 /* User.swift */; };
 		9C33749A1F27F10400C93F85 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374991F27F10400C93F85 /* ProfileViewController.swift */; };
+		9C33749C1F28050300C93F85 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33749B1F28050300C93F85 /* Manga.swift */; };
 		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
 		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
@@ -83,6 +84,7 @@
 		9C3374951F27CF8000C93F85 /* AniListUserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListUserRouter.swift; sourceTree = "<group>"; };
 		9C3374971F27DC5E00C93F85 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C3374991F27F10400C93F85 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9C33749B1F28050300C93F85 /* Manga.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
 		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +261,7 @@
 				9C3374861F26DEAF00C93F85 /* Category.swift */,
 				9C33748E1F276A4800C93F85 /* SeriesCharacter.swift */,
 				9C3374971F27DC5E00C93F85 /* User.swift */,
+				9C33749B1F28050300C93F85 /* Manga.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				9C33749A1F27F10400C93F85 /* ProfileViewController.swift in Sources */,
 				9C3374891F27105700C93F85 /* AniListService.swift in Sources */,
 				9C3374911F27AB0B00C93F85 /* MenuViewController.swift in Sources */,
+				9C33749C1F28050300C93F85 /* Manga.swift in Sources */,
 				9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationURL.swift in Sources */,
 				9C3374941F27C04F00C93F85 /* SeriesType.swift in Sources */,
 				9C3374791F26934000C93F85 /* Anime.swift in Sources */,

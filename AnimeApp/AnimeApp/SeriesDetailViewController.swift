@@ -73,7 +73,7 @@ class SeriesDetailViewController: UIViewController {
             .then { image in
                 self.seriesImage.image = image
             }.then {
-                self.episodesLabel.text = "Episodes: \(anime.episodes)"
+                self.episodesLabel.text = "Anime Episodes: \(anime.episodes)"
             }.then {
                 self.startDateLabel.text = "Start date: \(anime.startDate)"
             }.then {
@@ -82,6 +82,8 @@ class SeriesDetailViewController: UIViewController {
                 self.descriptionLabel.text = "\(anime.description)"
             }.then {
                 self.titleLabel.text = "\(anime.title)"
+            }.then {
+                self.studioLabel.text = "Manga Chapters: \(anime.chapters)"
             }.then {
                 self.seriesCharacters = anime.characters
             }.then {

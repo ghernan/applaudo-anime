@@ -13,6 +13,10 @@ class Series: Mappable {
     var id = 0
     var title = ""
     var imageURL = ""
+    var description = ""
+    var startDate = ""
+    var endDate = ""
+    var characters: [SeriesCharacter] = []
     
     required init?(map: Map) {
         
