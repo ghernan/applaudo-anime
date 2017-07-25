@@ -60,7 +60,7 @@ extension CategoryCell: UICollectionViewDataSource {
     
     //3
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("entre")
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.reusableIdentifier, for: indexPath) as! CollectionCell
         
         

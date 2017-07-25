@@ -11,6 +11,8 @@ import Alamofire
 
 enum AniListSeriesRouter: URLRequestConvertible {
     
+    case readCategories()
+    
     case readSeries()
     
     var query: (path: String, parameters: Parameters) {
@@ -20,6 +22,8 @@ enum AniListSeriesRouter: URLRequestConvertible {
         case .readSeries():
             return ("browse/anime",["page" : "1",
                                     "sort" : "score-desc"])
+        case .readCategories():
+            return ("genre_list", [:])
         }
     }
     

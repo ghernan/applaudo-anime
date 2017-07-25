@@ -18,10 +18,8 @@ class Anime: Series {
     
     
     // Mappable
-    override func mapping(map: Map) {
+    override func mapping(map: Map) {        
         
-        id              <- map["id"]
-        title           <- map["title_english"]
         description     <- map["description"]        
         episodes        <- map["total_episodes"]
         imageURL        <- map["image_url_lge"]

@@ -17,6 +17,7 @@
 		9C33747F1F26A66F00C93F85 /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */; };
 		9C3374831F26B01A00C93F85 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374821F26B01A00C93F85 /* CategoryCell.swift */; };
 		9C3374851F26BF9C00C93F85 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374841F26BF9C00C93F85 /* CollectionCell.swift */; };
+		9C3374871F26DEAF00C93F85 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374861F26DEAF00C93F85 /* Category.swift */; };
 		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
 		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
 		9C3374821F26B01A00C93F85 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		9C3374841F26BF9C00C93F85 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		9C3374861F26DEAF00C93F85 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +229,7 @@
 			children = (
 				9C3374761F268BA300C93F85 /* Series.swift */,
 				9C3374781F26934000C93F85 /* Anime.swift */,
+				9C3374861F26DEAF00C93F85 /* Category.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationURL.swift in Sources */,
 				9C3374791F26934000C93F85 /* Anime.swift in Sources */,
 				9C3374831F26B01A00C93F85 /* CategoryCell.swift in Sources */,
+				9C3374871F26DEAF00C93F85 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

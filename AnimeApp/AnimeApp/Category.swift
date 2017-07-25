@@ -1,5 +1,5 @@
 //
-//  Anime.swift
+//  Category.swift
 //  AnimeApp
 //
 //  Created by Antonio  Hernandez  on 7/24/17.
@@ -9,10 +9,11 @@
 import Foundation
 import ObjectMapper
 
-class Series: Mappable {
+class Category: Mappable {
+    
     var id = 0
-    var title = ""
-    var imageURL = ""
+    var genre = ""
+    
     
     required init?(map: Map) {
         
@@ -20,10 +21,8 @@ class Series: Mappable {
     
     // Mappable
     func mapping(map: Map) {
-        
         id          <- map["id"]
-        title       <- map["title_english"]
-        imageURL    <- map["image_url_lge"]
+        genre       <- map["genre"]
     }
-}
 
+}

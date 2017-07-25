@@ -45,7 +45,10 @@ class HomeViewController: UIViewController {
             Alamofire.request(AniListSeriesRouter.readSeries()).responseJSON(completionHandler: { (response) in
                 if let dictionary = response.value as? [[String : Any]] {
                     let array = Mapper<Series>().mapArray(JSONArray: dictionary)
-                    print(array)
+                    print(array[0].id)
+                    print(array[0].imageURL)
+                    print(array[0].title)
+                   
                 }
             })
         }
