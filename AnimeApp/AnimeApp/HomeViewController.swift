@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         
         super.viewDidLoad()
         loadSeriesContent()
+        tableView.sectionHeaderHeight = 40
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,23 +95,21 @@ extension HomeViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return categories[section].genre
-    }
+
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = UIView()
-//        let label = UILabel()
-//        view.backgroundColor = .black
-//        label.text = "Most Popular"
-//        label.backgroundColor = .clear
-//        label.tintColor = .white
-//        view.addSubview(label)
-//        tableView.headerView(forSection: section)?.contentView.addSubview(view)
-//        return view
-//        
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
+        let label = UILabel(frame: CGRect(x: 10, y: 5, width: tableView.frame.size.width, height: 18))
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .white
+        label.text = categories[section].genre
+        view.addSubview(label)
+        view.backgroundColor = .black // Set your background color
+        
+        return view
+        
+    }
 }
 
 
