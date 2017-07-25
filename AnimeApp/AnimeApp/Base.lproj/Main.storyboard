@@ -39,7 +39,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zpb-FO-Wjg">
-                                                    <rect key="frame" x="0.0" y="-1" width="288" height="140"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="374" height="140"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5SQ-SV-Yub">
                                                         <size key="itemSize" width="92" height="138"/>
@@ -122,7 +122,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="DhK-AX-8Xs" secondAttribute="trailing" constant="-16" id="vSc-6b-sHh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Kbh-jZ-bOe"/>
+                    <navigationItem key="navigationItem" id="Kbh-jZ-bOe">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="xn0-dI-hrt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="iEQ-md-wTl"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="z7I-U4-Ib0" id="Mdy-Lw-85U"/>
                         <segue destination="wzC-Ht-Kc2" kind="show" identifier="toSeriesDetail" id="qfT-zj-VQr"/>
@@ -299,6 +302,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.31861237050000002" green="0.051292048299999997" blue="0.14858563620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.31861237050000002" green="0.051292048299999997" blue="0.14858563620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -311,4 +315,7 @@
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="30" height="30"/>
+    </resources>
 </document>
