@@ -37,6 +37,20 @@ class AniListModelParser {
             fulfill(Mapper<Series>().mapArray(JSONArray: jsonDictionary))
         }
     }
+    
+    static func parseAnime(fromJSONDictionary json: Any) -> Promise<Anime> {
+        
+        return Promise { fulfill, reject in
+            guard let jsonDictionary = json as? [String : Any] else {
+                let error = NSError(domain: "AnimeApp", code: 0,
+                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+                return reject(error)
+            }
+            
+            fulfill(Mapper<Anime>().map(JSON: jsonDictionary)!)
+        }
+    }
+
 
     
 }

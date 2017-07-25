@@ -9,13 +9,13 @@
 import Foundation
 import ObjectMapper
 
-extension String {
+extension Date {
     
-    static func formatDateString(fuzzyDate: String) -> String {
+    static func formatDateString(fuzzyDate: Int) -> String {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
-        guard let date = formatter.date(from: fuzzyDate) else {
+        guard let date = formatter.date(from: "\(fuzzyDate)") else {
             return ""
         }
         formatter.dateFormat = "dd MM yyyy"
@@ -24,12 +24,12 @@ extension String {
         
     }
     
-    static let toDateString = TransformOf<String, String>(fromJSON: { (dateString: String?) -> String? in
-        return dateString != nil ? String.formatDateString(fuzzyDate: dateString!) : nil
+    static let toDateString = TransformOf<String, Int>(fromJSON: { (fuzzyDate: Int?) -> String? in
+        return fuzzyDate != nil ? Date.formatDateString(fuzzyDate: fuzzyDate!) : nil
         
-    }, toJSON: { (fuzzyDate: String?) -> String? in
+    }, toJSON: { (fuzzyDate: String?) -> Int? in
         
-        return fuzzyDate != nil ? fuzzyDate : nil
+        return fuzzyDate != nil ? 0 : nil
     })
 }
 

@@ -13,7 +13,7 @@
 		9C3374751F25D2E200C93F85 /* AniListSeriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374741F25D2E200C93F85 /* AniListSeriesRouter.swift */; };
 		9C3374771F268BA300C93F85 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374761F268BA300C93F85 /* Series.swift */; };
 		9C3374791F26934000C93F85 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374781F26934000C93F85 /* Anime.swift */; };
-		9C33747B1F269A6900C93F85 /* String+toDateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33747A1F269A6900C93F85 /* String+toDateString.swift */; };
+		9C33747B1F269A6900C93F85 /* Date+toDateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33747A1F269A6900C93F85 /* Date+toDateString.swift */; };
 		9C33747F1F26A66F00C93F85 /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */; };
 		9C3374831F26B01A00C93F85 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374821F26B01A00C93F85 /* CategoryCell.swift */; };
 		9C3374851F26BF9C00C93F85 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374841F26BF9C00C93F85 /* CollectionCell.swift */; };
@@ -21,6 +21,7 @@
 		9C3374891F27105700C93F85 /* AniListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374881F27105700C93F85 /* AniListService.swift */; };
 		9C33748B1F272EDA00C93F85 /* AniListModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33748A1F272EDA00C93F85 /* AniListModelParser.swift */; };
 		9C33748D1F2730E500C93F85 /* SeriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33748C1F2730E500C93F85 /* SeriesDetailViewController.swift */; };
+		9C33748F1F276A4800C93F85 /* SeriesCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33748E1F276A4800C93F85 /* SeriesCharacter.swift */; };
 		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
 		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
@@ -63,7 +64,7 @@
 		9C3374741F25D2E200C93F85 /* AniListSeriesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListSeriesRouter.swift; sourceTree = "<group>"; };
 		9C3374761F268BA300C93F85 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		9C3374781F26934000C93F85 /* Anime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
-		9C33747A1F269A6900C93F85 /* String+toDateString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+toDateString.swift"; sourceTree = "<group>"; };
+		9C33747A1F269A6900C93F85 /* Date+toDateString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+toDateString.swift"; sourceTree = "<group>"; };
 		9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
 		9C3374821F26B01A00C93F85 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		9C3374841F26BF9C00C93F85 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		9C3374881F27105700C93F85 /* AniListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListService.swift; sourceTree = "<group>"; };
 		9C33748A1F272EDA00C93F85 /* AniListModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListModelParser.swift; sourceTree = "<group>"; };
 		9C33748C1F2730E500C93F85 /* SeriesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewController.swift; sourceTree = "<group>"; };
+		9C33748E1F276A4800C93F85 /* SeriesCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesCharacter.swift; sourceTree = "<group>"; };
 		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +147,7 @@
 		9C33747C1F26A61400C93F85 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9C33747A1F269A6900C93F85 /* String+toDateString.swift */,
+				9C33747A1F269A6900C93F85 /* Date+toDateString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +239,7 @@
 				9C3374761F268BA300C93F85 /* Series.swift */,
 				9C3374781F26934000C93F85 /* Anime.swift */,
 				9C3374861F26DEAF00C93F85 /* Category.swift */,
+				9C33748E1F276A4800C93F85 /* SeriesCharacter.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C33748F1F276A4800C93F85 /* SeriesCharacter.swift in Sources */,
 				9C3374771F268BA300C93F85 /* Series.swift in Sources */,
 				9C33747F1F26A66F00C93F85 /* ImageDownloadHelper.swift in Sources */,
 				9C3374851F26BF9C00C93F85 /* CollectionCell.swift in Sources */,
@@ -589,7 +593,7 @@
 				9CC2EA881F23CD2F00ED92FA /* HomeViewController.swift in Sources */,
 				9C33748B1F272EDA00C93F85 /* AniListModelParser.swift in Sources */,
 				9C8613121F2544F600877B38 /* WebViewController.swift in Sources */,
-				9C33747B1F269A6900C93F85 /* String+toDateString.swift in Sources */,
+				9C33747B1F269A6900C93F85 /* Date+toDateString.swift in Sources */,
 				9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */,
 				9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */,
 				9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */,

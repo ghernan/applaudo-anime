@@ -14,7 +14,8 @@ class CategoryCell: UITableViewCell {
     //IBOutlets
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    //MARK: Public properties
+    var selectedSeries:((Int) -> Void)?
     //MARK: - Private properties
     
     fileprivate var mWidth: CGFloat = 0
@@ -58,7 +59,10 @@ class CategoryCell: UITableViewCell {
 //MARK: UICollectionViewDelegate
 
 extension CategoryCell: UICollectionViewDelegate {
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedSeries!(series[indexPath.row].id)       
+    }
 }
 
 //MARK: UICollectionViewDataSource

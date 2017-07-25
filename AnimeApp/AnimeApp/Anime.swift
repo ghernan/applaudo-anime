@@ -12,9 +12,10 @@ import ObjectMapper
 class Anime: Series {
     
     var description = ""    
-    var episodes = ""
+    var episodes = 0
     var startDate = ""
     var endDate = ""
+    var characters: [SeriesCharacter] = []
     
     
     // Mappable
@@ -26,8 +27,9 @@ class Anime: Series {
         description     <- map["description"]        
         episodes        <- map["total_episodes"]
         imageURL        <- map["image_url_lge"]
-        startDate       <- (map["start_date_fuzzy"], String.toDateString)
-        endDate         <- (map["end_date_fuzzy"], String.toDateString)
+        startDate       <- (map["start_date_fuzzy"], Date.toDateString)
+        endDate         <- (map["end_date_fuzzy"], Date.toDateString)
+        characters      <- (map["characters"], SeriesCharacter.transform)
         
     }
 }

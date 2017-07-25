@@ -19,6 +19,11 @@ class HomeViewController: UIViewController {
     //Private properties
     private let authManager = AuthenticationManager.shared
     fileprivate var categories: [Category] = []
+    fileprivate var selectedSeriesId = 0 {
+        didSet {
+            performSegue(withIdentifier: "toSeriesDetail", sender: self)
+        }
+    }
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -26,6 +31,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         loadSeriesContent()
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SeriesDetailViewController {
+            destination.seriesId = selectedSeriesId
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,6 +78,9 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reusableIdentifier) as! CategoryCell
         cell.setCategory(withCategory: categories[indexPath.section])
+        cell.selectedSeries = { id in
+            self.selectedSeriesId = id
+        }
         return cell
     }
     
@@ -99,4 +112,6 @@ extension HomeViewController: UITableViewDelegate {
 //        
 //    }
 }
+
+
 

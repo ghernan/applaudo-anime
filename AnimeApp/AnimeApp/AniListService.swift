@@ -50,5 +50,20 @@ class AniListService {
             }
     }
     
+    static func getDetailedSeries(withID id: Int) -> Promise<Anime> {
+        let queue = DispatchQueue.global()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        return firstly{
+            
+            Alamofire.request(AniListSeriesRouter.readSeriesDetail(fromSeriesID: id)).responseJSON()
+            
+            }.then(on: queue) { json in
+                AniListModelParser.parseAnime(fromJSONDictionary: json)
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+    }
+    
     
 }
