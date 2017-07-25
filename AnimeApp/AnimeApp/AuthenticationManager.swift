@@ -34,6 +34,12 @@ class AuthenticationManager {
         }
     }
     
+    private var refreshToken = "" {
+        didSet {
+        
+        }
+    }
+    
     //MARK: - Public properties
     var hasAuthToken = false
     var tokenCompletionHandler:((Bool) -> Void)?
@@ -51,6 +57,7 @@ class AuthenticationManager {
                              success: { (credentials, response, parameters) in
                                 self.token = credentials.oauthToken
                                 print(self.token)
+                                self.refreshToken = credentials.oauthRefreshToken
         },
                              failure: {error in
                                 print("error: \(error)")

@@ -44,7 +44,6 @@ class MenuViewController: UITableViewController {
             show(viewController, sender: self)
         default:
             break
-        }
-        
+        }        
     }
 }

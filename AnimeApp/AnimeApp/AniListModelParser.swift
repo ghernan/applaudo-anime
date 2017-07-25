@@ -50,7 +50,35 @@ class AniListModelParser {
             fulfill(Mapper<Anime>().map(JSON: jsonDictionary)!)
         }
     }
-
-
     
+    static func parseUser(fromJSONDictionary json: Any) -> Promise<User> {
+        
+        return Promise { fulfill, reject in
+            guard let jsonDictionary = json as? [String : Any] else {
+                let error = NSError(domain: "AnimeApp", code: 0,
+                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+                return reject(error)
+            }
+            
+            fulfill(Mapper<User>().map(JSON: jsonDictionary)!)
+        }
+    }
+    
+    static func parseFavoriteSeries(fromJSONDictionary json: Any, withSeriesType type: SeriesType) -> Promise<[Series]> {
+        return Promise { fulfill, reject in
+            let error = NSError(domain: "AnimeApp", code: 0,
+                                userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+            
+            guard let json = json as? [String : Any] else {
+                return reject(error)
+            }
+            guard let jsonDictionary = json[type.urlParamString()] as? [[String : Any]] else {
+                return reject(error)
+            }
+            
+            fulfill(Mapper<Series>().mapArray(JSONArray: jsonDictionary))
+        }
+        
+        
+    }
 }

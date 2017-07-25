@@ -24,6 +24,8 @@
 		9C33748F1F276A4800C93F85 /* SeriesCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33748E1F276A4800C93F85 /* SeriesCharacter.swift */; };
 		9C3374911F27AB0B00C93F85 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374901F27AB0B00C93F85 /* MenuViewController.swift */; };
 		9C3374941F27C04F00C93F85 /* SeriesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374931F27C04F00C93F85 /* SeriesType.swift */; };
+		9C3374961F27CF8000C93F85 /* AniListUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374951F27CF8000C93F85 /* AniListUserRouter.swift */; };
+		9C3374981F27DC5E00C93F85 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374971F27DC5E00C93F85 /* User.swift */; };
 		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
 		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
@@ -77,6 +79,8 @@
 		9C33748E1F276A4800C93F85 /* SeriesCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesCharacter.swift; sourceTree = "<group>"; };
 		9C3374901F27AB0B00C93F85 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9C3374931F27C04F00C93F85 /* SeriesType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesType.swift; sourceTree = "<group>"; };
+		9C3374951F27CF8000C93F85 /* AniListUserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListUserRouter.swift; sourceTree = "<group>"; };
+		9C3374971F27DC5E00C93F85 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +256,7 @@
 				9C3374781F26934000C93F85 /* Anime.swift */,
 				9C3374861F26DEAF00C93F85 /* Category.swift */,
 				9C33748E1F276A4800C93F85 /* SeriesCharacter.swift */,
+				9C3374971F27DC5E00C93F85 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -279,9 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */,
+				9C3374881F27105700C93F85 /* AniListService.swift */,
 				9C86130F1F2519D000877B38 /* AuthenticationManager.swift */,
 				9CC2EABB1F24FE1700ED92FA /* Routers */,
-				9C3374881F27105700C93F85 /* AniListService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 			children = (
 				9CC2EABC1F24FE5B00ED92FA /* AniListAuthenticationURL.swift */,
 				9C3374741F25D2E200C93F85 /* AniListSeriesRouter.swift */,
+				9C3374951F27CF8000C93F85 /* AniListUserRouter.swift */,
 			);
 			name = Routers;
 			sourceTree = "<group>";
@@ -609,7 +615,9 @@
 				9C8613121F2544F600877B38 /* WebViewController.swift in Sources */,
 				9C33747B1F269A6900C93F85 /* Date+toDateString.swift in Sources */,
 				9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */,
+				9C3374981F27DC5E00C93F85 /* User.swift in Sources */,
 				9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */,
+				9C3374961F27CF8000C93F85 /* AniListUserRouter.swift in Sources */,
 				9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */,
 				9C33748D1F2730E500C93F85 /* SeriesDetailViewController.swift in Sources */,
 				9C3374891F27105700C93F85 /* AniListService.swift in Sources */,

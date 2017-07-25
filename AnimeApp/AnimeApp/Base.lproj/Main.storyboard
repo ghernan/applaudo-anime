@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--AnimeApp-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="homeView" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" customModule="AnimeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,11 +56,11 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oz1-cs-evn">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="117"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="118"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkp-UQ-lCS">
-                                                                        <rect key="frame" x="0.0" y="120" width="92" height="18"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                                                        <rect key="frame" x="0.0" y="121" width="92" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -104,7 +104,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="VkW-14-yof"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhK-AX-8Xs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DhK-AX-8Xs">
                                 <rect key="frame" x="0.0" y="72" width="375" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="QVv-lM-K9I"/>
@@ -122,7 +122,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="DhK-AX-8Xs" secondAttribute="trailing" constant="-16" id="vSc-6b-sHh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Kbh-jZ-bOe">
+                    <navigationItem key="navigationItem" title="AnimeApp" id="Kbh-jZ-bOe">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="xn0-dI-hrt">
                             <connections>
                                 <segue destination="fNL-Sa-Dyq" kind="presentation" id="QVp-d1-uZo"/>
@@ -401,6 +401,24 @@
             </objects>
             <point key="canvasLocation" x="2884" y="820"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="xh3-a7-rd3">
+            <objects>
+                <viewController id="9Al-mV-Wr4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CoQ-aV-as4"/>
+                        <viewControllerLayoutGuide type="bottom" id="ecp-ys-MXz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aQt-WF-KZM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n4r-AH-Vy3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3777" y="820"/>
+        </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="6KS-qv-9KB">
             <objects>
@@ -429,6 +447,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="animeLogo" width="809" height="372"/>
         <image name="menu" width="30" height="30"/>
     </resources>
 </document>

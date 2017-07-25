@@ -24,7 +24,7 @@ class AniListService {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        return firstly{
+        return firstly {
             
             Alamofire.request(AniListSeriesRouter.readCategories()).responseJSON()
         
@@ -39,7 +39,7 @@ class AniListService {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        return firstly{
+        return firstly {
             
             Alamofire.request(AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre)).responseJSON()
             
@@ -54,7 +54,7 @@ class AniListService {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        return firstly{
+        return firstly {
             
             Alamofire.request(AniListSeriesRouter.readSeriesDetail(fromSeriesID: id)).responseJSON()
             
@@ -65,5 +65,33 @@ class AniListService {
         }
     }
     
+    static func getCurrentUser() -> Promise<User> {
+        let queue = DispatchQueue.global()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        return firstly {
+            
+            Alamofire.request(AniListUserRouter.readUser()).responseJSON()
+            
+            }.then(on: queue) { json in
+                AniListModelParser.parseUser(fromJSONDictionary: json)
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+    }
     
+    static func getFavoriteSeries(forUserID id: Int, fromSeriesType type: SeriesType) -> Promise<[Series]> {
+        let queue = DispatchQueue.global()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        return firstly {
+            
+            Alamofire.request(AniListUserRouter.readUserFavorites(fromUserID: id)).responseJSON()
+            
+            }.then(on: queue) { json in
+                AniListModelParser.parseFavoriteSeries(fromJSONDictionary: json, withSeriesType: type)
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+    }    
 }

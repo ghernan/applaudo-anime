@@ -28,10 +28,8 @@ class CategoryCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
-        mHeight = self.frame.height
-        mWidth = self.frame.width/4.2
-        sectionInsets = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width/40, bottom: 0, right: UIScreen.main.bounds.width/40)
-        // Initialization code
+        collectionViewLayoutCalculations()
+        
     }
     
     public static var reusableIdentifier: String{
@@ -53,6 +51,12 @@ class CategoryCell: UITableViewCell {
             }.catch{ error in
                 
             }
+    }
+    //MARK: - Private Methods
+    private func collectionViewLayoutCalculations() {
+        mHeight = self.frame.height - 10
+        mWidth = self.frame.width/4.2
+        sectionInsets = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width/40, bottom: 0, right: UIScreen.main.bounds.width/40)
     }
 }
 
