@@ -21,6 +21,7 @@ class WebViewController: OAuthWebViewController {
         webView.frame = view.bounds
         webView.autoresizingMask = UIViewAutoresizing.flexibleHeight        
         webView.scalesPageToFit = true
+        view.backgroundColor = .black
         view.addSubview(webView)
         loadAddressURL()
     }

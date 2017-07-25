@@ -32,13 +32,10 @@ class CategoryCell: UITableViewCell {
         
     }
     
-    public static var reusableIdentifier: String{
+    public static var reusableIdentifier: String {
         return String(describing: self)
     }
-    override func prepareForReuse() {
-        
-        super.prepareForReuse()
-    }
+    
     public func setCategory(withSeriesType type: SeriesType, fromCategory category: Category) {
         //print(category.genre)
         firstly {
@@ -72,17 +69,16 @@ extension CategoryCell: UICollectionViewDelegate {
 //MARK: UICollectionViewDataSource
 
 extension CategoryCell: UICollectionViewDataSource {
-    //1
+   
     private func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
-        return 1  }
+        return 1
+    }
     
-    //2
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return series.count
     }
     
-    //3
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.reusableIdentifier, for: indexPath) as! CollectionCell
@@ -92,8 +88,9 @@ extension CategoryCell: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
+
 extension CategoryCell: UICollectionViewDelegateFlowLayout {
-    //Especificamos tamaños de celdas de acuerdo al dispositivo
+    
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -101,12 +98,9 @@ extension CategoryCell: UICollectionViewDelegateFlowLayout {
         return CGSize(width: mWidth, height: mHeight)
     }
     
-    //Generamos insets de acuerdo al tamaño de la pantalla
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
 }
-
-

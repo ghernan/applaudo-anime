@@ -14,7 +14,9 @@ class CollectionCell: UICollectionViewCell {
     @IBOutlet weak var seriesImage: UIImageView!
     @IBOutlet weak var seriesNameLabel: UILabel!
     
-    public static var reusableIdentifier: String{
+    
+    //MARK: - Life cycle
+    public static var reusableIdentifier: String {
         return String(describing: self)
     }
     override func prepareForReuse() {
@@ -23,6 +25,7 @@ class CollectionCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
+    //MARK: - Public functions
     func setSeries(withSeries series: Series) {
         self.seriesImage.image = nil
         ImageDownloadHelper.getImage(fromURL: URL(string: series.imageURL)!)
