@@ -13,7 +13,7 @@ enum AniListSeriesRouter: URLRequestConvertible {
     
     case readCategories()
     
-    case readSeries(fromCategoryString: String)
+    case readSeries(withSeriesType: SeriesType, fromCategoryString: String)
     
     case readSeriesDetail(fromSeriesID: Int)
     
@@ -21,9 +21,9 @@ enum AniListSeriesRouter: URLRequestConvertible {
         
         switch self {
             
-        case .readSeries(let category):
+        case .readSeries(let type, let category):
             //print(category)
-            return ("browse/anime",["page" : "1",
+            return ("browse/\(type)",["page" : "1",
                                     "sort" : "score-desc", "genres" : category])
         case .readCategories():
             return ("genre_list", [:])

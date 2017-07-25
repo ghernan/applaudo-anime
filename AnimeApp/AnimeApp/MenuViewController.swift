@@ -30,14 +30,21 @@ class MenuViewController: UITableViewController {
     }
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeView") as! HomeViewController
+        guard let viewController:HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeView") as? HomeViewController else {
+            return
+        }
+        
         switch indexPath.row {
             
         case 0:
+            viewController.seriesType = .anime
+            show(viewController, sender: self)
+        case 1:
+            viewController.seriesType = .manga
             show(viewController, sender: self)
         default:
             break
         }
-        //dismiss(animated: true, completion: nil)
+        
     }
 }

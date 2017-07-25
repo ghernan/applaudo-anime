@@ -41,11 +41,11 @@ class CategoryCell: UITableViewCell {
         
         super.prepareForReuse()
     }
-    public func setCategory(withCategory category: Category) {
+    public func setCategory(withSeriesType type: SeriesType, fromCategory category: Category) {
         //print(category.genre)
         firstly {
             
-            AniListService.getSeries(fromCategory: category)
+            AniListService.getSeries(withSeriesType: type, fromCategory: category)
             }.then { series in
                 self.series = series
             }.then { categories in

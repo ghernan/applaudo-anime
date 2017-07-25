@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
     
     //IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    
+    //Public properties
+    public var seriesType: SeriesType = .anime
     //Private properties
     private let authManager = AuthenticationManager.shared
     fileprivate var categories: [Category] = []
@@ -92,7 +93,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reusableIdentifier) as! CategoryCell
-        cell.setCategory(withCategory: categories[indexPath.section])
+        cell.setCategory(withSeriesType: seriesType, fromCategory: categories[indexPath.section])
         cell.selectedSeries = { id in
             self.selectedSeriesId = id
         }

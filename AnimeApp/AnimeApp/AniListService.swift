@@ -35,13 +35,13 @@ class AniListService {
             }
     }
     
-    static func getSeries(fromCategory category: Category) -> Promise<[Series]> {
+    static func getSeries(withSeriesType type: SeriesType, fromCategory category: Category) -> Promise<[Series]> {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         return firstly{
             
-            Alamofire.request(AniListSeriesRouter.readSeries(fromCategoryString: category.genre)).responseJSON()
+            Alamofire.request(AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre)).responseJSON()
             
             }.then(on: queue) { json in
                 AniListModelParser.parseSeries(fromJSONDictionary: json)
