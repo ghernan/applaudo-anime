@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         
         switch authManager.hasAuthToken {
         case true:
-            //TODO: reload collection view
+            loadSeriesContent()
             break
         case false:
             authManager.authenticate()
@@ -53,18 +53,32 @@ class HomeViewController: UIViewController {
     //MARK: - Private functions
     private func loadSeriesContent() {
         
-        authManager.tokenCompletionHandler = { hasToken in
-
-            firstly {
-                AniListService.getCategories()
-                }.then { categories in
-                    self.categories = categories
-                }.then { categories in
-                    self.tableView.reloadData()
-                }.catch{ error in
-                    UIAlertController(title: "", message: "", preferredStyle: .alert).show(self, sender: nil)
+        
+        switch authManager.hasAuthToken {
+        case true:
+            retrieveSeries()
+            break
+        case false:
+            authManager.tokenCompletionHandler = { hasToken in
+                self.retrieveSeries()
             }
         }
+        
+    }
+    
+    private func retrieveSeries() {
+        
+        firstly {
+            AniListService.getCategories()
+            }.then { categories in
+                self.categories = categories
+            }.then { categories in
+                self.tableView.reloadData()
+            }.catch{ error in
+                UIAlertController(title: "", message: "", preferredStyle: .alert).show(self, sender: nil)
+            }
+    
+    
     }
 }
 
