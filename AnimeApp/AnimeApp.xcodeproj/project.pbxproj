@@ -18,6 +18,8 @@
 		9C3374831F26B01A00C93F85 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374821F26B01A00C93F85 /* CategoryCell.swift */; };
 		9C3374851F26BF9C00C93F85 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374841F26BF9C00C93F85 /* CollectionCell.swift */; };
 		9C3374871F26DEAF00C93F85 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374861F26DEAF00C93F85 /* Category.swift */; };
+		9C3374891F27105700C93F85 /* AniListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374881F27105700C93F85 /* AniListService.swift */; };
+		9C33748B1F272EDA00C93F85 /* AniListModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33748A1F272EDA00C93F85 /* AniListModelParser.swift */; };
 		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
 		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
@@ -65,6 +67,8 @@
 		9C3374821F26B01A00C93F85 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		9C3374841F26BF9C00C93F85 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		9C3374861F26DEAF00C93F85 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9C3374881F27105700C93F85 /* AniListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListService.swift; sourceTree = "<group>"; };
+		9C33748A1F272EDA00C93F85 /* AniListModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListModelParser.swift; sourceTree = "<group>"; };
 		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				9C33747E1F26A66F00C93F85 /* ImageDownloadHelper.swift */,
+				9C33748A1F272EDA00C93F85 /* AniListModelParser.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				9CC2EAB91F23E1FB00ED92FA /* AnimeAPI.swift */,
 				9C86130F1F2519D000877B38 /* AuthenticationManager.swift */,
 				9CC2EABB1F24FE1700ED92FA /* Routers */,
+				9C3374881F27105700C93F85 /* AniListService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -578,11 +584,13 @@
 				9C3374851F26BF9C00C93F85 /* CollectionCell.swift in Sources */,
 				9C3374751F25D2E200C93F85 /* AniListSeriesRouter.swift in Sources */,
 				9CC2EA881F23CD2F00ED92FA /* HomeViewController.swift in Sources */,
+				9C33748B1F272EDA00C93F85 /* AniListModelParser.swift in Sources */,
 				9C8613121F2544F600877B38 /* WebViewController.swift in Sources */,
 				9C33747B1F269A6900C93F85 /* String+toDateString.swift in Sources */,
 				9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */,
 				9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */,
 				9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */,
+				9C3374891F27105700C93F85 /* AniListService.swift in Sources */,
 				9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationURL.swift in Sources */,
 				9C3374791F26934000C93F85 /* Anime.swift in Sources */,
 				9C3374831F26B01A00C93F85 /* CategoryCell.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class CategoryCell: UITableViewCell {
     
@@ -19,6 +20,7 @@ class CategoryCell: UITableViewCell {
     fileprivate var mWidth: CGFloat = 0
     fileprivate var mHeight: CGFloat = 0
     fileprivate var sectionInsets = UIEdgeInsets()
+    fileprivate var series: [Series] = []
     
     //MARK: - Life cycle
     override func awakeFromNib() {
@@ -34,9 +36,23 @@ class CategoryCell: UITableViewCell {
     public static var reusableIdentifier: String{
         return String(describing: self)
     }
-
-   
-
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+    }
+    public func setCategory(withCategory category: Category) {
+        //print(category.genre)
+        firstly {
+            
+            AniListService.getSeries(fromCategory: category)
+            }.then { series in
+                self.series = series
+            }.then { categories in
+                self.collectionView.reloadData()
+            }.catch{ error in
+                
+            }
+    }
 }
 
 //MARK: UICollectionViewDelegate
@@ -55,15 +71,14 @@ extension CategoryCell: UICollectionViewDataSource {
     
     //2
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return series.count
     }
     
     //3
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.reusableIdentifier, for: indexPath) as! CollectionCell
-        
-        
+        cell.setSeries(withSeries: series[indexPath.row])
         return cell
     }
 }

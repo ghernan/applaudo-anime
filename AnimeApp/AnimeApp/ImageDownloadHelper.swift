@@ -9,10 +9,11 @@
 import Foundation
 import Alamofire
 import AlamofireImage
+import PromiseKit
 
 class ImageDownloadHelper {
     
-    static let imageDownloader = ImageDownloader(
+    private static let imageDownloader = ImageDownloader(
         configuration: ImageDownloader.defaultURLSessionConfiguration(),
         downloadPrioritization: .fifo,
         maximumActiveDownloads: 10,
@@ -24,16 +25,18 @@ class ImageDownloadHelper {
         
     }
     //MARK: - Static functions
-    
-    static func getImage(fromURL url: URL, success: @escaping (UIImage) -> (), error: @escaping (String) -> ()) {
-        let urlRequest = URLRequest(url: url)
-        imageDownloader.download(urlRequest) { response in
-            guard let image = response.result.value else {
-                error("Error: unable to retrieve image")
-                return
+
+    static func getImage(fromURL url: URL) -> Promise<UIImage> {
+        return Promise { fulfill, reject in
+            let urlRequest = URLRequest(url: url)
+            imageDownloader.download(urlRequest) { response in
+                guard let image = response.result.value else {
+                    reject(response.error!)
+                    return
+                }
+                fulfill(image)
             }
-            success(image)
-        }
+        }       
     }
     
 }

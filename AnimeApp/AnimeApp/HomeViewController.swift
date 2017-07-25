@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import ObjectMapper
+import PromiseKit
 
 class HomeViewController: UIViewController {
     
@@ -17,12 +18,12 @@ class HomeViewController: UIViewController {
     
     //Private properties
     private let authManager = AuthenticationManager.shared
+    fileprivate var categories: [Category] = []
     
     //MARK: - Life cycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         loadSeriesContent()
         
     }
@@ -42,15 +43,16 @@ class HomeViewController: UIViewController {
     private func loadSeriesContent() {
         
         authManager.tokenCompletionHandler = { hasToken in
-            Alamofire.request(AniListSeriesRouter.readSeries()).responseJSON(completionHandler: { (response) in
-                if let dictionary = response.value as? [[String : Any]] {
-                    let array = Mapper<Series>().mapArray(JSONArray: dictionary)
-                    print(array[0].id)
-                    print(array[0].imageURL)
-                    print(array[0].title)
-                   
-                }
-            })
+
+            firstly {
+                AniListService.getCategories()
+                }.then { categories in
+                    self.categories = categories
+                }.then { categories in
+                    self.tableView.reloadData()
+                }.catch{ error in
+                    UIAlertController(title: "", message: "", preferredStyle: .alert).show(self, sender: nil)
+            }
         }
     }
 }
@@ -65,11 +67,12 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reusableIdentifier) as! CategoryCell
+        cell.setCategory(withCategory: categories[indexPath.section])
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return categories.count
     }
     
 
@@ -80,7 +83,7 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return "Most popular"
+        return categories[section].genre
     }
     
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
