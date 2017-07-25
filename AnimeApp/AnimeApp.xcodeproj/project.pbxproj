@@ -20,6 +20,7 @@
 		9C3374871F26DEAF00C93F85 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374861F26DEAF00C93F85 /* Category.swift */; };
 		9C3374891F27105700C93F85 /* AniListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3374881F27105700C93F85 /* AniListService.swift */; };
 		9C33748B1F272EDA00C93F85 /* AniListModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33748A1F272EDA00C93F85 /* AniListModelParser.swift */; };
+		9C33748D1F2730E500C93F85 /* SeriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33748C1F2730E500C93F85 /* SeriesDetailViewController.swift */; };
 		9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86130F1F2519D000877B38 /* AuthenticationManager.swift */; };
 		9C8613121F2544F600877B38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8613111F2544F600877B38 /* WebViewController.swift */; };
 		9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2EA851F23CD2F00ED92FA /* AppDelegate.swift */; };
@@ -69,6 +70,7 @@
 		9C3374861F26DEAF00C93F85 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9C3374881F27105700C93F85 /* AniListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListService.swift; sourceTree = "<group>"; };
 		9C33748A1F272EDA00C93F85 /* AniListModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AniListModelParser.swift; sourceTree = "<group>"; };
+		9C33748C1F2730E500C93F85 /* SeriesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewController.swift; sourceTree = "<group>"; };
 		9C86130F1F2519D000877B38 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9C8613111F2544F600877B38 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CC2EA821F23CD2F00ED92FA /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +247,7 @@
 				9C3374801F26AFE900C93F85 /* Components */,
 				9CC2EA871F23CD2F00ED92FA /* HomeViewController.swift */,
 				9C8613111F2544F600877B38 /* WebViewController.swift */,
+				9C33748C1F2730E500C93F85 /* SeriesDetailViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				9CC2EA861F23CD2F00ED92FA /* AppDelegate.swift in Sources */,
 				9CC2EABA1F23E1FB00ED92FA /* AnimeAPI.swift in Sources */,
 				9C8613101F2519D000877B38 /* AuthenticationManager.swift in Sources */,
+				9C33748D1F2730E500C93F85 /* SeriesDetailViewController.swift in Sources */,
 				9C3374891F27105700C93F85 /* AniListService.swift in Sources */,
 				9CC2EABD1F24FE5B00ED92FA /* AniListAuthenticationURL.swift in Sources */,
 				9C3374791F26934000C93F85 /* Anime.swift in Sources */,
