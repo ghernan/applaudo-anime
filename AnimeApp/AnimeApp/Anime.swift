@@ -11,8 +11,7 @@ import ObjectMapper
 
 class Anime: Series {
     
-    var description = ""
-    var imageURL = ""
+    var description = ""    
     var episodes = ""
     var startDate = ""
     var endDate = ""
@@ -23,9 +22,9 @@ class Anime: Series {
         
         id              <- map["id"]
         title           <- map["title_english"]
-        description     <- map["description"]
-        imageURL        <- map["image_url_lge"]
+        description     <- map["description"]        
         episodes        <- map["total_episodes"]
+        imageURL        <- map["image_url_lge"]
         startDate       <- (map["start_date_fuzzy"], String.toDateString)
         endDate         <- (map["end_date_fuzzy"], String.toDateString)
         

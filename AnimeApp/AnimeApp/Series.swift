@@ -12,6 +12,7 @@ import ObjectMapper
 class Series: Mappable {
     var id = ""
     var title = ""
+    var imageURL = ""
     
     required init?(map: Map) {
         
@@ -19,9 +20,10 @@ class Series: Mappable {
     
     // Mappable
     func mapping(map: Map) {
-        id      <- map["0.id"]
-        title   <- map["0.title_english"]
         
+        id          <- map["0.id"]
+        title       <- map["0.title_english"]
+        imageURL    <- map["0.image_url_lge"]        
     }
 }
 

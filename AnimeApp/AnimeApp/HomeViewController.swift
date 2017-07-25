@@ -79,5 +79,18 @@ extension HomeViewController: UITableViewDelegate {
         
         return "Most popular"
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let view = UIView()
+//        let label = UILabel()
+//        view.backgroundColor = .black
+//        label.text = "Most Popular"
+//        label.backgroundColor = .clear
+//        label.tintColor = .white
+//        view.addSubview(label)
+//        tableView.headerView(forSection: section)?.contentView.addSubview(view)
+//        return view
+//        
+//    }
 }
 
