@@ -18,6 +18,7 @@ class Series: Mappable {
     var seriesType = ""
     var startDate = ""
     var endDate = "On Going"
+    var youTubeID = ""
     var characters: [SeriesCharacter] = []
     
     required init?(map: Map) {

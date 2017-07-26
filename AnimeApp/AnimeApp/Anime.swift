@@ -29,6 +29,7 @@ class Anime: Series {
         startDate       <- (map["start_date_fuzzy"], Date.toDateString)
         endDate         <- (map["end_date_fuzzy"], Date.toDateString)
         characters      <- (map["characters"], SeriesCharacter.transform)
+        youTubeID       <- map["youtube_id"]
         
     }
 }
