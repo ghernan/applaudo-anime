@@ -10,6 +10,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="0Fs-HS-7h9">
+            <objects>
+                <viewController id="XTx-43-I6z" customClass="SearchViewController" customModule="AnimeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDp-i9-pd0"/>
+                        <viewControllerLayoutGuide type="bottom" id="XuF-7e-74X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2n0-9h-akL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="du9-sd-NiV">
+                                <rect key="frame" x="16" y="28" width="343" height="619"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aIC-dP-f7A">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aIC-dP-f7A" id="ZFN-sB-vAf">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="du9-sd-NiV" firstAttribute="top" secondItem="sDp-i9-pd0" secondAttribute="bottom" constant="8" id="1yS-aO-EhC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="du9-sd-NiV" secondAttribute="leading" id="Bfg-7Y-uMC"/>
+                            <constraint firstItem="XuF-7e-74X" firstAttribute="top" secondItem="du9-sd-NiV" secondAttribute="bottom" constant="20" id="WzM-X8-iAr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="du9-sd-NiV" secondAttribute="trailing" id="ix1-gZ-vHN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="du9-sd-NiV" id="vSE-6m-Qwt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3g3-Nu-Ypv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2096.8000000000002" y="-564.46776611694156"/>
+        </scene>
         <!--AnimeApp-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -128,7 +172,11 @@
                                 <segue destination="fNL-Sa-Dyq" kind="presentation" id="QVp-d1-uZo"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="iEQ-md-wTl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="iEQ-md-wTl">
+                            <connections>
+                                <segue destination="XTx-43-I6z" kind="presentation" modalTransitionStyle="flipHorizontal" id="AIB-e7-a86"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="z7I-U4-Ib0" id="Mdy-Lw-85U"/>
@@ -565,6 +613,6 @@
         <image name="menu" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jrk-TE-BjU"/>
+        <segue reference="qfT-zj-VQr"/>
     </inferredMetricsTieBreakers>
 </document>
