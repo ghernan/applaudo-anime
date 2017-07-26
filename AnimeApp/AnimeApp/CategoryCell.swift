@@ -55,12 +55,17 @@ class CategoryCell: UITableViewCell {
                 
             }
     }
+    public func setHeight(height: CGFloat) {
+        mHeight = height
+    }
+    
     //MARK: - Private Methods
     private func collectionViewLayoutCalculations() {
-        mHeight = self.frame.height - 10
+        //mHeight = self.frame.height - 10
         mWidth = self.frame.width/4.2
         sectionInsets = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width/40, bottom: 0, right: UIScreen.main.bounds.width/40)
     }
+    
 }
 
 //MARK: UICollectionViewDelegate

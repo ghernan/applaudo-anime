@@ -23,6 +23,7 @@ class Anime: Series {
         imageURL        <- map["image_url_lge"]
         description     <- map["description"]        
         episodes        <- map["total_episodes"]
+        seriesType      <- map["series_type"]
         imageURL        <- map["image_url_lge"]
         chapters        <- map["total_chapters"]
         startDate       <- (map["start_date_fuzzy"], Date.toDateString)

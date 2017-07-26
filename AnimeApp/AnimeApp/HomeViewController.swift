@@ -94,6 +94,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reusableIdentifier) as! CategoryCell
         cell.setCategory(withSeriesType: seriesType, fromCategory: categories[indexPath.section])
+        cell.setHeight(height: cell.frame.height-10)
         cell.selectedSeries = { id in
             self.selectedSeriesId = id
         }

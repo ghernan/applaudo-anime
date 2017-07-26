@@ -29,6 +29,12 @@ class SeriesDetailViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!    
     
+    //MARK: - IBAction
+    
+    @IBAction func exit(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
     //MARK: - Public properties
     var seriesId = 0
@@ -112,6 +118,7 @@ extension SeriesDetailViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.reusableIdentifier, for: indexPath) as! CollectionCell
         cell.setCharacter(withCharacter: seriesCharacters[indexPath.row])
+        
         return cell
     }
 }

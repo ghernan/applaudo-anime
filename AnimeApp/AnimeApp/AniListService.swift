@@ -35,14 +35,15 @@ class AniListService {
             }
     }
     
-    static func getSeries(withSeriesType type: SeriesType, fromCategory category: Category) -> Promise<[Series]> {
+    static func getSeries(withSeriesType type: SeriesType, fromCategory category: Category = Category(), fromSearch query: String = "") -> Promise<[Series]> {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let urlRequest = query != "" ?
+            AniListSeriesRouter.browseSeries(withSeriesType: type, withQuery: query) :
+            AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre)
         
         return firstly {
-            
-            Alamofire.request(AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre)).responseJSON()
-            
+                Alamofire.request(urlRequest).responseJSON()
             }.then(on: queue) { json in
                 AniListModelParser.parseSeries(fromJSONDictionary: json)
             }.always {
@@ -93,5 +94,6 @@ class AniListService {
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
-    }    
+    }
+    
 }

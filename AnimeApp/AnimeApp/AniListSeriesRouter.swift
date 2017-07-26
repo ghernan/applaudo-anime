@@ -17,6 +17,8 @@ enum AniListSeriesRouter: URLRequestConvertible {
     
     case readSeriesDetail(fromSeriesID: Int)
     
+    case browseSeries(withSeriesType: SeriesType, withQuery: String)
+    
     var query: (path: String, parameters: Parameters) {
         
         switch self {
@@ -30,6 +32,9 @@ enum AniListSeriesRouter: URLRequestConvertible {
             
         case .readSeriesDetail(let id):
             return ("anime/\(id)/page",[:])
+            
+        case .browseSeries(let type, let q):
+            return ("\(type)/search/\(q)", [:])
         }
     }
     

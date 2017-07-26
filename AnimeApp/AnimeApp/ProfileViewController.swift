@@ -130,6 +130,7 @@ extension ProfileViewController: UITableViewDataSource {
         let seriesType: SeriesType = indexPath.section == 0 ? .anime : .manga
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reusableIdentifier) as! CategoryCell
         cell.setSeries(withSeriesList: seriesType == .anime ? animes : mangas)
+        cell.setHeight(height: cell.frame.height-10)
         cell.selectedSeries = { id in
             self.selectedSeriesId = id
         }

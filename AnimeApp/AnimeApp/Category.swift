@@ -14,7 +14,9 @@ class Category: Mappable {
     var id = 0
     var genre = ""
     
+    init() {
     
+    }
     required init?(map: Map) {
         
     }

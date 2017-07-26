@@ -10,10 +10,12 @@ import Foundation
 import ObjectMapper
 
 class Series: Mappable {
+    
     var id = 0
     var title = ""
     var imageURL = ""
     var description = ""
+    var seriesType = ""
     var startDate = ""
     var endDate = "On Going"
     var characters: [SeriesCharacter] = []
