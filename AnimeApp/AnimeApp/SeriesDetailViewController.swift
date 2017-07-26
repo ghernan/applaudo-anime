@@ -126,7 +126,7 @@ extension SeriesDetailViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension SeriesDetailViewController: UICollectionViewDelegateFlowLayout {
-    //Especificamos tamaños de celdas de acuerdo al dispositivo
+    
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -134,7 +134,7 @@ extension SeriesDetailViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: mWidth, height: mHeight)
     }
     
-    //Generamos insets de acuerdo al tamaño de la pantalla
+    
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAt section: Int) -> UIEdgeInsets {
