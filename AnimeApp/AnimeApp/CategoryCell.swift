@@ -22,6 +22,10 @@ class CategoryCell: UITableViewCell {
     fileprivate var mHeight: CGFloat = 0
     fileprivate var sectionInsets = UIEdgeInsets()
     fileprivate var series: [Series] = []
+    fileprivate var isCategorySet = false
+    fileprivate var currentPage = 0
+    fileprivate var seriesType: SeriesType = .anime
+    fileprivate var category = Category()
     
     //MARK: - Life cycle
     override func awakeFromNib() {
@@ -33,8 +37,8 @@ class CategoryCell: UITableViewCell {
     }
     //MARK: Public methods
     public func setSeries(withSeriesList series: [Series]) {
-        self.series = series
         
+        self.series = series
         collectionView.reloadData()
     }
     
@@ -43,25 +47,30 @@ class CategoryCell: UITableViewCell {
     }
     
     public func setCategory(withSeriesType type: SeriesType, fromCategory category: Category) {
-        //print(category.genre)
+        self.category = category
+        self.seriesType = type
+        isCategorySet = true
+        currentPage += 1
         firstly {
             
-            AniListService.getSeries(withSeriesType: type, fromCategory: category)
+            AniListService.getSeries(withSeriesType: type, fromCategory: category, inPage: currentPage)
             }.then { series in
-                self.series = series
+                self.series.append(contentsOf: series)
             }.then { categories in
                 self.collectionView.reloadData()
             }.catch{ error in
                 
             }
     }
+    
     public func setHeight(height: CGFloat) {
+        
         mHeight = height
     }
     
     //MARK: - Private Methods
     private func collectionViewLayoutCalculations() {
-        //mHeight = self.frame.height - 10
+        
         mWidth = self.frame.width/4.2
         sectionInsets = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width/40, bottom: 0, right: UIScreen.main.bounds.width/40)
     }
@@ -74,6 +83,15 @@ extension CategoryCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedSeries!(series[indexPath.row].id)       
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if isCategorySet {
+            if indexPath.row >= series.count-5 {
+                
+                self.setCategory(withSeriesType: self.seriesType, fromCategory: self.category)
+            }
+        }
     }
 }
 

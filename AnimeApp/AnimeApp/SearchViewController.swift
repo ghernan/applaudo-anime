@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         configureSearchBar()
         configureActivityIndicator()
-        configuringTableView()        
+        configuringTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +66,7 @@ class SearchViewController: UIViewController {
     private func configureActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
         activityIndicator.frame = CGRect(x:0, y:0, width: 80, height:80)
-        activityIndicator.center = view.center
+        activityIndicator.center = tableView.center
         tableView.addSubview(activityIndicator)
         
     }
