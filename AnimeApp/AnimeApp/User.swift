@@ -13,7 +13,7 @@ class User: Mappable {
     
     var id = 0
     var userName = ""
-    var imageURl = ""
+    var imageURL = ""
     
     required init?(map: Map) {
         
@@ -24,7 +24,7 @@ class User: Mappable {
         
         id          <- map["id"]
         userName    <- map["display_name"]
-        imageURl    <- map["image_url_banner"]
+        imageURL    <- map["image_url_lge"]
     }
     
 }

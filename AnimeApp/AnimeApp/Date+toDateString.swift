@@ -18,7 +18,7 @@ extension Date {
         guard let date = formatter.date(from: "\(fuzzyDate)") else {
             return ""
         }
-        formatter.dateFormat = "dd MM yyyy"
+        formatter.dateFormat = "dd MMM yyyy"
         
         return formatter.string(from: date)
         

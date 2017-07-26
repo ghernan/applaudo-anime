@@ -497,7 +497,7 @@
                                                 <constraint firstItem="Nca-Eh-2Y7" firstAttribute="width" secondItem="6dE-lO-yUV" secondAttribute="width" id="qUI-kt-fRg"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="collectionView" destination="Nca-Eh-2Y7" id="Bug-JJ-YO0"/>
                                         </connections>
@@ -523,7 +523,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="0sm-8I-f0h" id="sZz-e5-AY9"/>
                         <outlet property="tableView" destination="Rw2-ua-2fe" id="VSF-YZ-1Nj"/>
+                        <outlet property="userImage" destination="yhB-dd-M9G" id="ak1-V0-JTr"/>
                         <segue destination="wzC-Ht-Kc2" kind="show" identifier="profileToSeriesDetail" id="jrk-TE-BjU"/>
                     </connections>
                 </viewController>

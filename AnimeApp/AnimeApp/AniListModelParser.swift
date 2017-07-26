@@ -16,9 +16,7 @@ class AniListModelParser {
         
         return Promise { fulfill, reject in
             guard let jsonDictionary = json as? [[String : Any]] else {
-                let error = NSError(domain: "AnimeApp", code: 0,
-                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
-                return reject(error)
+                return fulfill([])
             }
             
             fulfill(Mapper<Category>().mapArray(JSONArray: jsonDictionary))
@@ -29,9 +27,7 @@ class AniListModelParser {
         
         return Promise { fulfill, reject in
             guard let jsonDictionary = json as? [[String : Any]] else {
-                let error = NSError(domain: "AnimeApp", code: 0,
-                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
-                return reject(error)
+                return fulfill([])
             }
             
             fulfill(Mapper<Series>().mapArray(JSONArray: jsonDictionary))
@@ -65,15 +61,14 @@ class AniListModelParser {
     }
     
     static func parseFavoriteSeries(fromJSONDictionary json: Any, withSeriesType type: SeriesType) -> Promise<[Series]> {
-        return Promise { fulfill, reject in
-            let error = NSError(domain: "AnimeApp", code: 0,
-                                userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+        return Promise { fulfill, reject in            
             
             guard let json = json as? [String : Any] else {
-                return reject(error)
+                return fulfill([])
             }
             guard let jsonDictionary = json[type.urlParamString()] as? [[String : Any]] else {
-                return reject(error)
+                
+                return fulfill([])
             }
             
             fulfill(Mapper<Series>().mapArray(JSONArray: jsonDictionary))

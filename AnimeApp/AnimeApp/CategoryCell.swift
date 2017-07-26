@@ -31,6 +31,12 @@ class CategoryCell: UITableViewCell {
         collectionViewLayoutCalculations()
         
     }
+    //MARK: Public methods
+    public func setSeries(withSeriesList series: [Series]) {
+        self.series = series
+        
+        collectionView.reloadData()
+    }
     
     public static var reusableIdentifier: String {
         return String(describing: self)

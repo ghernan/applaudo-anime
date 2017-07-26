@@ -76,7 +76,7 @@ class HomeViewController: UIViewController {
             }.then { categories in
                 self.tableView.reloadData()
             }.catch{ error in
-                UIAlertController(title: "", message: "", preferredStyle: .alert).show(self, sender: nil)
+                UIAlertController(title: "", message: "ERROR: \(error)", preferredStyle: .alert).show(self, sender: nil)
             }
     
     
