@@ -63,7 +63,14 @@ class SearchViewController: UIViewController {
         
     }
     
+    @objc private func dismissKeyboard() {
+        
+        searchController.searchBar.resignFirstResponder()
+        searchController.view.endEditing(true)
+    }
+    
     private func configureActivityIndicator() {
+        
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
         activityIndicator.frame = CGRect(x:0, y:0, width: 80, height:80)
         activityIndicator.center = tableView.center
@@ -71,7 +78,12 @@ class SearchViewController: UIViewController {
         
     }
     
-    private func configuringTableView() {        tableView.tableFooterView = UIView()        
+    private func configuringTableView() {
+        tableView.tableFooterView = UIView()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        tableView.isUserInteractionEnabled = true
+        tableView.addGestureRecognizer(tap)
     }
     
     @objc fileprivate func retrieveSeries() {
@@ -134,6 +146,7 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reusableIdentifier)! as! CategoryCell
+        
         cell.setSeries(withSeriesList: series)
         cell.setHeight(height: UIScreen.main.bounds.height/5)
         cell.selectedSeries = { id in

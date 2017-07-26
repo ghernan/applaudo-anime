@@ -34,6 +34,7 @@ class CategoryCell: UITableViewCell {
         collectionView.dataSource = self
         collectionViewLayoutCalculations()
         
+        
     }
     //MARK: Public methods
     public func setSeries(withSeriesList series: [Series]) {
