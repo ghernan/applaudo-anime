@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     //Public properties
     public var seriesType: SeriesType = .anime
     //Private properties
+    private var activityIndicator: UIActivityIndicatorView!
     private let authManager = AuthenticationManager.shared
     fileprivate var categories: [Category] = []
     fileprivate var selectedSeriesId = 0 {
@@ -42,6 +43,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        
         switch authManager.hasAuthToken {
         case true:
             loadSeriesContent()
@@ -52,6 +54,16 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: - Private functions
+    
+    private func configureActivityIndicator() {
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityIndicator.frame = CGRect(x:0, y:0, width: 80, height:80)
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
+        
+    }
+    
     private func loadSeriesContent() {
         
         
@@ -64,22 +76,22 @@ class HomeViewController: UIViewController {
                 self.retrieveSeries()
             }
         }
-        
     }
-    
+       
     private func retrieveSeries() {
-        
+        configureActivityIndicator()
+        activityIndicator.startAnimating()
         firstly {
-            AniListService.getCategories()
+            AniListManager.getCategories()
             }.then { categories in
                 self.categories = categories
             }.then { categories in
                 self.tableView.reloadData()
-            }.catch{ error in
-                UIAlertController(title: "", message: "ERROR: \(error)", preferredStyle: .alert).show(self, sender: nil)
+            }.catch { error in
+                ErrorHelper.throwAlert(withError: error, on: self)
+            }.always {
+                self.activityIndicator.stopAnimating()
             }
-    
-    
     }
 }
 

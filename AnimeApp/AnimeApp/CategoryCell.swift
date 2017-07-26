@@ -22,6 +22,9 @@ class CategoryCell: UITableViewCell {
     fileprivate var mHeight: CGFloat = 0
     fileprivate var sectionInsets = UIEdgeInsets()
     fileprivate var series: [Series] = []
+    fileprivate var seriesType: SeriesType?
+    fileprivate var genre: Category?
+    fileprivate var currentPage = 1
     
     
     //MARK: - Life cycle
@@ -43,17 +46,22 @@ class CategoryCell: UITableViewCell {
         return String(describing: self)
     }
     
-    public func setCategory(withSeriesType type: SeriesType, fromCategory category: Category) {
+    public func setCategory(withSeriesType type: SeriesType, fromCategory category: Category, inPage page: Int = 1) {
+        self.genre = category
+        self.seriesType = type
         
-        firstly {
+        
             
-            AniListService.getSeries(withSeriesType: type, fromCategory: category)
-            }.then { series in
+        AniListManager.getSeries(withSeriesType: type, fromCategory: category, inPage: page)
+            .then { series in
                 self.series = series
-            }.then { categories in
+                //TODO:
+                //This should do the trick for pagination can not figure out why it doesn't.
+                //self.joinCollection(withSeriesList: series)
+            }.then {
                 self.collectionView.reloadData()
             }.catch{ error in
-                
+                print(error)
             }
     }
     
@@ -62,7 +70,15 @@ class CategoryCell: UITableViewCell {
         mHeight = height
     }
     
+    
     //MARK: - Private Methods
+    private func joinCollection(withSeriesList series: [Series]) {
+        if self.series.count == 0 {
+            self.series = series
+        } else {
+            self.series.append(contentsOf: series)
+        }
+    }
     private func collectionViewLayoutCalculations() {
         
         mWidth = self.frame.width/4.2
@@ -76,10 +92,33 @@ class CategoryCell: UITableViewCell {
 extension CategoryCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedSeries!(series[indexPath.row].id)       
+        if let selectedSeries = selectedSeries {
+            selectedSeries(series[indexPath.row].id)
+        }
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        //Commented since pagination is not working.
+        
+//        if indexPath.item == series.count - 5 {
+//            print(indexPath.item)
+//            guard let type = self.seriesType else {
+//                
+//                return
+//            }
+//            guard let category = self.genre else {
+//                
+//                return
+//            }
+//            currentPage += 1
+//            
+//            //setCategory(withSeriesType: type, fromCategory: category, inPage: currentPage)
+//        }
+    }
 }
+    
+
 
 //MARK: UICollectionViewDataSource
 

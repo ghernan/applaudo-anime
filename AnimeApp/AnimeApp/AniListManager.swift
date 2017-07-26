@@ -11,7 +11,7 @@ import PromiseKit
 import Alamofire
 import ObjectMapper
 
-class AniListService {
+class AniListManager {
     
     //MARK: Life cycle
     private init() {
@@ -25,8 +25,7 @@ class AniListService {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         return firstly {
-            
-            Alamofire.request(AniListSeriesRouter.readCategories()).responseJSON()
+            AnimeAPIService.sendRequest(fromURLRequest: AniListSeriesRouter.readCategories().urlRequest!)
         
             }.then(on: queue) { json in
                 AniListModelParser.parseCategories(fromJSONDictionary: json)
@@ -35,32 +34,32 @@ class AniListService {
             }
     }
     
-    static func getSeries(withSeriesType type: SeriesType, fromCategory category: Category = Category(), fromSearch query: String = "") -> Promise<[Series]> {
+    static func getSeries(withSeriesType type: SeriesType, fromCategory category: Category = Category(), fromSearch query: String = "", inPage page: Int = 1) -> Promise<[Series]> {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let urlRequest = query != "" ?
             AniListSeriesRouter.browseSeries(withSeriesType: type, withQuery: query) :
-            AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre)
+            AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre, inPage: page)
         
         return firstly {
-                Alamofire.request(urlRequest).responseJSON()
+                AnimeAPIService.sendRequest(fromURLRequest: urlRequest.urlRequest!)
             }.then(on: queue) { json in
-                AniListModelParser.parseSeries(fromJSONDictionary: json)
+                AniListModelParser.parseSeriesArray(fromJSONDictionary: json)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
     }
     
-    static func getDetailedSeries(withID id: Int) -> Promise<Anime> {
+    static func getDetailedSeries(withID id: Int) -> Promise<Series> {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         return firstly {
             
-            Alamofire.request(AniListSeriesRouter.readSeriesDetail(fromSeriesID: id)).responseJSON()
+            AnimeAPIService.sendRequest(fromURLRequest: AniListSeriesRouter.readSeriesDetail(fromSeriesID: id).urlRequest!)
             
             }.then(on: queue) { json in
-                AniListModelParser.parseAnime(fromJSONDictionary: json)
+                AniListModelParser.parseSeries(fromJSONDictionary: json)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
@@ -72,7 +71,7 @@ class AniListService {
         
         return firstly {
             
-            Alamofire.request(AniListUserRouter.readUser()).responseJSON()
+            AnimeAPIService.sendRequest(fromURLRequest: AniListUserRouter.readUser().urlRequest!)
             
             }.then(on: queue) { json in
                 AniListModelParser.parseUser(fromJSONDictionary: json)
@@ -87,7 +86,7 @@ class AniListService {
         
         return firstly {
             
-            Alamofire.request(AniListUserRouter.readUserFavorites(fromUserID: id)).responseJSON()
+             AnimeAPIService.sendRequest(fromURLRequest: AniListUserRouter.readUserFavorites(fromUserID: id).urlRequest!)
             
             }.then(on: queue) { json in
                 AniListModelParser.parseFavoriteSeries(fromJSONDictionary: json, withSeriesType: type)

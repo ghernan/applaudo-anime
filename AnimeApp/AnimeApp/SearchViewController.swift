@@ -78,7 +78,7 @@ class SearchViewController: UIViewController {
         activityIndicator.startAnimating()
         if let query = searchController.searchBar.text {
             
-            AniListService.getSeries(withSeriesType: seriesType, fromSearch: query)
+            AniListManager.getSeries(withSeriesType: seriesType, fromSearch: query)
                 .then { series in
                     self.series = series
                 }.then { series in

@@ -11,7 +11,7 @@ import ObjectMapper
 
 class Manga: Series {
     
-    var chapters = 0
+    
     
     
     // Mappable

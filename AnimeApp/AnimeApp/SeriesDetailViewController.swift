@@ -74,7 +74,7 @@ class SeriesDetailViewController: UIViewController {
     
     //MARK: Private properties
     private var videoPlayer = XCDYouTubeVideoPlayerViewController()
-    fileprivate var series: Anime!
+    fileprivate var series: Series!
     fileprivate var seriesCharacters: [SeriesCharacter] = []
     fileprivate var mWidth: CGFloat = 0
     fileprivate var mHeight: CGFloat = 0
@@ -105,42 +105,45 @@ class SeriesDetailViewController: UIViewController {
     }
     private func loadSeriesInfo() {
         
-        AniListService.getDetailedSeries(withID: seriesId)
-            .then { anime in
-                self.series = anime
-            }.then { anime in
+        AniListManager.getDetailedSeries(withID: seriesId)
+            .then { series in
+                self.series = series
+            }.then {
                 self.setView(with: self.series)
             }.then { anime in
                 self.prepareVideoButton()
             }.catch { error in
-                UIAlertController(title: "", message: "\(error)", preferredStyle: .alert).show(self, sender: nil)
+                ErrorHelper.throwAlert(withError: error, on: self)
             }
     }
     
-    private func setView(with anime: Anime) {
+    private func setView(with series: Series) {
         
-        let airingText = anime.seriesType == SeriesType.anime.urlParamString() ?
-            "Anime Episodes: \(anime.episodes)" :
-            "Manga Chapters: \(anime.chapters)"
-        ImageDownloadHelper.getImage(fromURL: URL(string: anime.imageURL)!)
+        let airingText = series.seriesType == SeriesType.anime.urlParamString() ?
+            "Anime Episodes: \(series.episodes)" :
+            "Manga Chapters: \(series.chapters)"
+        guard let imageUrl = URL(string: series.imageURL) else {
+            return
+        }
+        ImageDownloadHelper.getImage(fromURL: imageUrl)
             .then { image in
                 self.seriesImage.image = image
             }.then {
                 self.episodesLabel.text = airingText
             }.then {
-                self.startDateLabel.text = "Start date: \(anime.startDate)"
+                self.startDateLabel.text = "Start date: \(series.startDate)"
             }.then {
-                self.endDateLabel.text = "End date:  \(anime.endDate)"
+                self.endDateLabel.text = "End date:  \(series.endDate)"
             }.then {
-                self.descriptionLabel.text = "\(anime.description)"
+                self.descriptionLabel.text = "\(series.description)"
             }.then {
-                self.titleLabel.text = "\(anime.title)"
+                self.titleLabel.text = "\(series.title)"
             }.then {
-                self.seriesCharacters = anime.characters
+                self.seriesCharacters = series.characters
             }.then {
                 self.collectionView.reloadData()
             }.catch { error in
-                UIAlertController(title: "", message: "", preferredStyle: .alert).show(self, sender: nil)
+                ErrorHelper.throwAlert(withError: error, on: self)
             }
     }
 }

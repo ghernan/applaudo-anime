@@ -29,8 +29,9 @@ class AuthenticationManager {
     
     private var token = "" {
         didSet {
-            
-            tokenCompletionHandler!(true)
+            if let completionHandler = tokenCompletionHandler {
+                completionHandler(true)
+            }
         }
     }
     
@@ -50,14 +51,19 @@ class AuthenticationManager {
     public func authenticate() {
         
         oauthswift.authorizeURLHandler = WebViewController()
+        oauthswift.allowMissingStateCheck = true
         hasAuthToken = true
-        oauthswift.authorize(withCallbackURL: URL(string: AniListAuthenticationURL.redirectURL.urlString)!,
+        guard let url = URL(string: AniListAuthenticationURL.redirectURL.urlString) else {
+            return
+        }
+        oauthswift.authorize(withCallbackURL: url,
                              scope: "",
                              state: "GET",
                              success: { (credentials, response, parameters) in
                                 self.token = credentials.oauthToken
                                 print(self.token)
                                 self.refreshToken = credentials.oauthRefreshToken
+                                print("refesh: \(self.refreshToken)")
         },
                              failure: {error in
                                 print("error: \(error)")

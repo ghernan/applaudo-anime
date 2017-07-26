@@ -27,6 +27,7 @@ class CollectionCell: UICollectionViewCell {
     
     //MARK: - Public functions
     func setSeries(withSeries series: Series) {
+        
         self.seriesImage.image = nil
         ImageDownloadHelper.getImage(fromURL: URL(string: series.imageURL)!)
             .then { image in
@@ -34,11 +35,12 @@ class CollectionCell: UICollectionViewCell {
             }.then {
                 self.seriesNameLabel.text = series.title
             }.catch { error in
-        
+                print(error)
             }
     }
     
     func setCharacter(withCharacter character: SeriesCharacter) {
+        
         self.seriesImage.image = nil
         ImageDownloadHelper.getImage(fromURL: URL(string: character.imageURL)!)
             .then { image in
@@ -46,7 +48,7 @@ class CollectionCell: UICollectionViewCell {
             }.then {
                 self.seriesNameLabel.text = "\(character.firstName) \(character.lastName)"
             }.catch { error in
-                
+                print(error)
             }
     }
     

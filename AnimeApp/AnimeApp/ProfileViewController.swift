@@ -59,17 +59,17 @@ class ProfileViewController: UIViewController {
     private func retrieveUserInfo() {
         
         firstly {
-            AniListService.getCurrentUser()
+            AniListManager.getCurrentUser()
             }.then { user in
                 self.setUserInfo(fromUser: user)
             }.then {
-                AniListService.getFavoriteSeries(forUserID: self.userId, fromSeriesType: .anime)
+                AniListManager.getFavoriteSeries(forUserID: self.userId, fromSeriesType: .anime)
                 
             }.then { series in
                 self.animes = series
                 
             }.then {
-                AniListService.getFavoriteSeries(forUserID: self.userId, fromSeriesType: .manga)
+                AniListManager.getFavoriteSeries(forUserID: self.userId, fromSeriesType: .manga)
                 
             }.then { series in
                 self.mangas = series
@@ -79,20 +79,23 @@ class ProfileViewController: UIViewController {
                 
             }.catch { error in
                 
-                UIAlertController(title: "", message: "ERROR: \(error)", preferredStyle: .alert).show(self, sender: nil)
+                ErrorHelper.throwAlert(withError: error, on: self)
             }
     }
     
     private func setUserInfo(fromUser user: User) {
         nameLabel.text = user.userName
         userId = user.id
-        ImageDownloadHelper.getImage(fromURL: URL(string: user.imageURL)!)
+        guard let imageUrl = URL(string: user.imageURL) else {
+            return
+        }
+        ImageDownloadHelper.getImage(fromURL: imageUrl)
             .then { image in
                 
                 self.userImage.image = image
         
             }.catch { error in
-                UIAlertController(title: "", message: "ERROR: \(error)", preferredStyle: .alert).show(self, sender: nil)
+                ErrorHelper.throwAlert(withError: error, on: self)
             }   
     }
     private func setFavorites(forSeriesType type: SeriesType, withSeriesList list: [Series]) {
@@ -105,13 +108,13 @@ class ProfileViewController: UIViewController {
     }
 
     fileprivate func retrieveFavorites(withSeriesType type: SeriesType) {
-        AniListService.getFavoriteSeries(forUserID: userId, fromSeriesType: type)
+        AniListManager.getFavoriteSeries(forUserID: userId, fromSeriesType: type)
             .then { series in
                 
                 self.setFavorites(forSeriesType: type, withSeriesList: series)
                 
             }.catch { error in
-                
+                print(error)
             }
     }
     

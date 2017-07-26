@@ -11,8 +11,7 @@ import ObjectMapper
 
 class Anime: Series {
     
-    var episodes = 0
-    var chapters = 0
+    
     
     
     // Mappable

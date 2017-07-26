@@ -10,7 +10,11 @@ import Foundation
 import PromiseKit
 import ObjectMapper
 
+
 class AniListModelParser {
+    
+    static let error = NSError(domain: "AniListModelParser", code: 0,
+                        userInfo: [NSLocalizedDescriptionKey: "Unknown Parsing error"])
     
     static func parseCategories(fromJSONDictionary json: Any) -> Promise<[Category]> {
         
@@ -23,7 +27,7 @@ class AniListModelParser {
         }
     }
     
-    static func parseSeries(fromJSONDictionary json: Any) -> Promise<[Series]> {
+    static func parseSeriesArray(fromJSONDictionary json: Any) -> Promise<[Series]> {
         
         return Promise { fulfill, reject in
             guard let jsonDictionary = json as? [[String : Any]] else {
@@ -34,29 +38,30 @@ class AniListModelParser {
         }
     }
     
-    static func parseAnime(fromJSONDictionary json: Any) -> Promise<Anime> {
+    static func parseSeries(fromJSONDictionary json: Any) -> Promise<Series> {
         
         return Promise { fulfill, reject in
             guard let jsonDictionary = json as? [String : Any] else {
-                let error = NSError(domain: "AnimeApp", code: 0,
-                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+                
                 return reject(error)
             }
-            
-            fulfill(Mapper<Anime>().map(JSON: jsonDictionary)!)
+            guard let series = Mapper<Series>().map(JSON: jsonDictionary) else {
+                return reject(error)
+            }
+            fulfill(series)
         }
     }
     
     static func parseUser(fromJSONDictionary json: Any) -> Promise<User> {
         
         return Promise { fulfill, reject in
-            guard let jsonDictionary = json as? [String : Any] else {
-                let error = NSError(domain: "AnimeApp", code: 0,
-                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+            guard let jsonDictionary = json as? [String : Any] else {               
                 return reject(error)
             }
-            
-            fulfill(Mapper<User>().map(JSON: jsonDictionary)!)
+            guard let user = Mapper<User>().map(JSON: jsonDictionary) else {
+                return reject(error)
+            }
+            fulfill(user)
         }
     }
     
