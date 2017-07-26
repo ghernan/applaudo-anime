@@ -35,12 +35,12 @@ class AniListService {
             }
     }
     
-    static func getSeries(withSeriesType type: SeriesType, fromCategory category: Category = Category(), fromSearch query: String = "", inPage page: Int = 1) -> Promise<[Series]> {
+    static func getSeries(withSeriesType type: SeriesType, fromCategory category: Category = Category(), fromSearch query: String = "") -> Promise<[Series]> {
         let queue = DispatchQueue.global()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let urlRequest = query != "" ?
             AniListSeriesRouter.browseSeries(withSeriesType: type, withQuery: query) :
-            AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre, inPage: page)
+            AniListSeriesRouter.readSeries(withSeriesType: type, fromCategoryString: category.genre)
         
         return firstly {
                 Alamofire.request(urlRequest).responseJSON()

@@ -22,10 +22,7 @@ class CategoryCell: UITableViewCell {
     fileprivate var mHeight: CGFloat = 0
     fileprivate var sectionInsets = UIEdgeInsets()
     fileprivate var series: [Series] = []
-    fileprivate var isCategorySet = false
-    fileprivate var currentPage = 0
-    fileprivate var seriesType: SeriesType = .anime
-    fileprivate var category = Category()
+    
     
     //MARK: - Life cycle
     override func awakeFromNib() {
@@ -47,15 +44,12 @@ class CategoryCell: UITableViewCell {
     }
     
     public func setCategory(withSeriesType type: SeriesType, fromCategory category: Category) {
-        self.category = category
-        self.seriesType = type
-        isCategorySet = true
-        currentPage += 1
+        
         firstly {
             
-            AniListService.getSeries(withSeriesType: type, fromCategory: category, inPage: currentPage)
+            AniListService.getSeries(withSeriesType: type, fromCategory: category)
             }.then { series in
-                self.series.append(contentsOf: series)
+                self.series = series
             }.then { categories in
                 self.collectionView.reloadData()
             }.catch{ error in
@@ -85,14 +79,6 @@ extension CategoryCell: UICollectionViewDelegate {
         selectedSeries!(series[indexPath.row].id)       
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if isCategorySet {
-            if indexPath.row >= series.count-5 {
-                
-                self.setCategory(withSeriesType: self.seriesType, fromCategory: self.category)
-            }
-        }
-    }
 }
 
 //MARK: UICollectionViewDataSource
